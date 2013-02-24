@@ -1,0 +1,54 @@
+<h1>Listing posts</h1>
+
+<table>
+
+  <tr>
+    <th align="left">Name</th>
+    <th align="left">Title</th>
+    <th></th>
+    <th align="left">Content</th>
+    <th></th>
+    <th align="left">Tags</th>
+    <th></th>
+    <th align="left">Total Comments</th>
+    <th align="left">Total Views</th>
+    <th align="left">Unique Views</th>
+    <th></th>
+    <th></th>
+    <th></th>
+<COLGROUP>
+   <COL width="50">
+   <COL width="175">
+   <COL width="25">
+   <COL width="375">
+   <COL width="25">
+   <COL width="200">
+   <COL width="25">
+   <COL width="50">
+   <COL width="50">
+   <COL width="50">
+   <COL width="0*">
+   <COL width="0*">
+   <COL width="0*">
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.name %></td>
+    <td><%= post.title %></td>
+    <td></td>
+    <td><%= post.content %></td>
+    <td></td>
+    <td><%= join_tags(post) %></td>
+    <td></td>
+    <td><%= post.comments.count %></td>
+    <td><%= post.impressionist_count(:filter=>:all) %></td>
+    <td><%= post.impressionist_count(:filter=>session_hash) %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>
