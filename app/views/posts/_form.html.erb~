@@ -1,16 +1,8 @@
 <% @post.tags.build %>
 <%= form_for(@post) do |post_form| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= post_form.error_messages :header_message=>"You've done something wrong",
+       :message=>"These errors will need to be fixed",
+       :header_tag=>:h3 %>
 
   <div class="field">
     <%= post_form.label :name %><br />
@@ -24,6 +16,7 @@
     <%= post_form.label :content %><br />
     <%= post_form.text_area :content %>
   </div>
+
   <h2>Tags</h2>
   <%= render :partial => 'tags/form',
              :locals => {:form => post_form} %>

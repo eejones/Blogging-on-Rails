@@ -3,7 +3,7 @@ class Tag < ActiveRecord::Base
   attr_accessible :name
 
   validates :name, :presence=>true
-  validates :name, :uniqueness=>{:scope=>:post,
+  validates :name, :uniqueness=>{:case_sensitive=>false, 
     :message=>"%{value} is already being used"}
 
 end
