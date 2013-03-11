@@ -1,2 +1,2 @@
 <h1>Hello, Rails!</h1>
-<%= link_to "EEJ Blog", post_path %>
+<%= link_to "EEJ Blog", posts_path %>

@@ -1,7 +1,9 @@
 Weblog::Application.routes.draw do
+
   resources :posts do
    resources :comments
   end
+  resources :commenters 
  
  get "home/index"
 

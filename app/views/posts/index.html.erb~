@@ -44,11 +44,41 @@
     <td><%= post.impressionist_count(:filter=>:session_hash) %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { :confirm=> 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', post, :confirm=> 'Are you sure?', :method=> :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
+<table>
+
+  <tr>
+    <th align="left">Name</th>
+    <th></th>
+    <th align="left">Total Comments</th>
+    <th></th>
+    <th align="left">Total Posts Commented on</th>
+    <th></th>
+    <th></th>
+<COLGROUP>
+   <COL width="50">
+   <COL width="25">
+   <COL width="50">
+   <COL width="0*">
+   <COL width="50">
+   <COL width="0*">
+   <COL width="0*">
+<% @commenters.each do |commenter| %>
+  <tr>
+    <td><%= commenter.name %></td>
+    <td></td>
+    <td><%= commenter.comments.count %></td>
+    <td><%= commenter.comments.count %></td>
+    <td><%= link_to 'Destroy', commenter, :confirm=> 'Are you sure?', :method=> :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
 <%= link_to 'New Post', new_post_path %>
