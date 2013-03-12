@@ -1,6 +1,6 @@
 <p>
   <b>Commenter:</b>
-  <% options_from_collection_for_select(commenters.all, :id, :name) %>
+  <% comment.commenter %>
 </p>
 
 
