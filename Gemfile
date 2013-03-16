@@ -13,6 +13,7 @@ gem 'impressionist'
 
 gem 'dynamic_form'
 
+gem 'censor_for_seven_words', :git => 'https://github.com/eejones/Gem-for-Carlins-Seven-Dirty-Words.git'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

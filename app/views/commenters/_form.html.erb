@@ -1,0 +1,14 @@
+<%= form_for(@commenter) do |commenter_form| %>
+  <%= commenter_form.error_messages :header_message=>"You've done something wrong",
+       :message=>"These errors will need to be fixed",
+       :header_tag=>:h3 %>
+
+  <div class="field">
+    <%= commenter_form.label :name %><br />
+    <%= commenter_form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= commenter_form.submit %>
+  </div>
+<% end %>
