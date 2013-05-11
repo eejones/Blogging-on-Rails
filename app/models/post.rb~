@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-require 'censor_for_seven_words'
+#require 'censor_for_seven_words'
 
   is_impressionable
   attr_accessible :content, :name, :title, :tags_attributes

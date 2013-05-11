@@ -1,2 +1,3 @@
 <h1>Hello, Rails!</h1>
-<%= link_to "EEJ Blog", posts_path %>
+<%= link_to "Login to the Community!", commenters_path %>
+<%= link_to "Enter without logging in", posts_path %>
