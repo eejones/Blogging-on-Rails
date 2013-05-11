@@ -1,14 +1,45 @@
-== Blogging on Rails ==
+Weblog
+=========
 
+Users can add blog posts with their name, title, and content(with some limits on length for name particularly)(they must enter their username and password to create). These posts can also be edited with the correct security.
+
+User Interface for Users
+------------
+
+When viewing posts and creating comments and tags, users will see a straightforward screen. This program uses the 'censor_for_seven_words' gem to censor certain words as well:
+![weblog Postshowscreenonlycensored](/app/assets/images/Postshowscreenonlycensored.png)
+
+Users can also edit posts with correct security
 username: eej
 password: guest
 
-This program is based off of the rubyonrails.org guides with a few additions. 
+![weblog Authenticatepopupweblog](/app/assets/images/Authenticatepopupweblog.png)
 
-Users can add blog posts ith their name title and content(with some limits on length for name particularly)(they must enter their username and password to create). These posts can also be edited with the correct security.
+Without this security they can't edit or add posts:
 
-Tags can also be added to each post.
+![weblog failedauthweblog](/app/assets/images/failedauthweblog.png)
 
-Users can also add comments to individual posts. These comments can also be deleted by users with the correct username/password.
+Users can view all posts with comment info and tags:
 
-The enhancements can be seen in /posts. I cleaned up the table so that the headers and table data are alligned and the display is a bit neater. There is also a count for the # of comments, the number of total views and the number of unique views by session id.
+![weblog postindexweblog](/app/assets/images/postindexweblog.png)
+
+Users can also see information on individual commenters:
+![weblog commenterinfo](/app/assets/images/commenterinfo.png)
+
+Additional Setup
+------------
+This program uses the 'censor_for_seven_words' gem to censor certain language:
+
+Adding censor_for_seven_words gem to your Gemfile:
+
+```ruby
+gem "censor_for_seven_words"
+```
+
+This allows users to easily censor words for posts, tags and comments directly in views:
+```ruby
+<p>
+  <b>Comment:</b>
+  <%= comment.body.censor_words %>
+</p>
+```

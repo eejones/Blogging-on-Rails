@@ -16,6 +16,7 @@ password: guest
 ![weblog Authenticatepopupweblog](/app/assets/images/Authenticatepopupweblog.png)
 
 Without this security they can't edit or add posts:
+
 ![weblog failedauthweblog](/app/assets/images/failedauthweblog.png)
 
 Users can view all posts with comment info and tags:
